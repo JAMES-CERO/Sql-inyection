@@ -24,4 +24,21 @@ app.post('/login', (req, res) => {
     let username = req.body.username
     let password = req.body.password
     let query = "SELECT title FROM user WHERE username = '"+ username + "' AND password = '"+ password + "';"
+
+    console.log(username)
+    console.log(password)
+    console.log(query)
+
+    db.get(query, function(err, row) {
+        if (err) {
+            console.log('ERROR404', err)
+            res.redirect('/index.html#error');
+        } else if (!row) {
+            res.redirect('/index.html#unathorized')
+        } else {
+            res.send('Hello <b>' + row.title + '!</b><br/> This file contains all your secret data: <br/><br/> SECRETS <br/><br/> MORE SECRETS <br/><br/> <a href="/index.html">Go back to login</a>');
+        }
+    } )
 })
+
+app.listen(3000, 'Your Rock!')
