@@ -36,9 +36,15 @@ app.post('/login', (req, res) => {
         } else if (!row) {
             res.redirect('/index.html#unathorized')
         } else {
-            res.send('Hello <b>' + row.title + '!</b><br/> This file contains all your secret data: <br/><br/> SECRETS <br/><br/> MORE SECRETS <br/><br/> <a href="/index.html">Go back to login</a>');
+            res.send('Hello <b>' + row.title + '!</b><br /> This file contains all your secret data: <br /><br /> SECRETS <br /><br /> MORE SECRETS <br /><br /> <a href="/index.html">Go back to login</a>');
         }
-    } )
-})
+    });
+});
 
-app.listen(3000, 'Your Rock!')
+app.listen(3000, () => {
+    try {
+        console.log('You Rock')
+    } catch (err) {
+        console.log('You dont rock body')
+    }
+})
