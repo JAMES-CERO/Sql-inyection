@@ -8,17 +8,17 @@
     <link rel="stylesheet" type="text/css" href="styles.css" />
 </head>
 <body>
-    <form action='/login' method="POST">
+    <form action='/login' method="post">
         <div class="container">
-        <input label="username" required/>
-        <input label="password" required />
+        <input type="text"  placeholder="Enter username" name="username" required/>
+        <input type="password" placeholder="Enter password" name="password" required />
         <button type="submit" >Submit</button>
         </div>
         <script>
             if(document.location.hash === '#unauthorized') {
-                document.write('<div class="unauthorized">Invalid username or password</div>')
+                document.write('<div class="unauthorized">Invalid username or password</div>');
             } else if (document.location.hash === '#error') {
-                document.write('<div class="error">An error has ocurred</div>')
+                document.write('<div class="error">An error has ocurred</div>');
             }
         </script>
     </form>
